@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Margin — Next.js Blog
 
-## Getting Started
+A responsive editorial blog built with the Next.js App Router. The homepage is server-rendered, posts have dynamic article pages, and search filters the hydrated post cache as you type.
 
-First, run the development server:
+## Screenshots
+
+### Homepage
+
+![The Margin homepage](outputs/homepage.png)
+
+### Article
+
+![The Margin article page](outputs/article.png)
+
+## Features
+
+- Server-rendered homepage and individual posts.
+- Dynamic `/posts/[slug]` routes with a custom 404 page.
+- MockAPI-compatible collection endpoint with validated records and a local seed fallback.
+- Instant search across title, excerpt, author, and category.
+- TanStack React Query prefetching and hydration.
+- Responsive, keyboard-accessible editorial layout.
+- Per-page canonical, Open Graph, and title/description metadata.
+
+## Local setup
+
+Requirements: Node.js 20.9 or later and npm.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). The app runs immediately from the bundled seed posts. To use a mock service, copy `.env.example` to `.env.local` and set `MOCK_API_URL` to an HTTPS collection endpoint that returns a JSON array.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Mock API shape
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Each record needs a unique URL-safe `slug`, a `title`, and an ISO date in `publishedAt`. Optional fields are `excerpt`, `content`, `author`, `coverImage`, `coverImageAlt`, and `category`.
 
-## Learn More
+```json
+[
+  {
+    "slug": "a-slower-way-to-build",
+    "title": "A slower way to build",
+    "excerpt": "Good tools leave space for thought.",
+    "content": "The full article text goes here.",
+    "author": "Dev Patel",
+    "publishedAt": "2026-11-10T09:00:00.000Z",
+    "coverImage": "https://images.unsplash.com/photo-1497366216548-37526070297c",
+    "coverImageAlt": "A sunlit shared work table",
+    "category": "Technology"
+  }
+]
+```
 
-To learn more about Next.js, take a look at the following resources:
+The endpoint must be public over HTTPS and return a JSON array. Invalid, empty, or unavailable responses use the seed posts. Cover images are accepted from `images.unsplash.com`; other or missing image URLs use a safe fallback.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Routes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Route | Purpose |
+| --- | --- |
+| `/` | Server-rendered homepage and client-side search |
+| `/posts/[slug]` | Server-rendered individual article |
+| `/api/posts` | JSON collection |
+| `/api/posts/[slug]` | One post as JSON, or a 404 response |
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deploy the GitHub repository with Vercel's Next.js preset. Vercel supplies `VERCEL_URL` for canonical metadata; set `NEXT_PUBLIC_SITE_URL` only if using a custom domain. Add `MOCK_API_URL` in project environment variables if you have a MockAPI collection. If it is omitted, the public site uses the seed posts.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project checks
+
+```bash
+npm run lint
+npm run build
+```
