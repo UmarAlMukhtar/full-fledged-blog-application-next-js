@@ -153,6 +153,27 @@ a:focus-visible, input:focus-visible { outline: 2px solid var(--coral); outline-
 .site-footer .wordmark { font-size: 22px; }
 .site-footer p, .site-footer > span { color: var(--muted); font-size: 11px; }
 
+.article-main { padding: 35px 0 110px; }
+.article-breadcrumb { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.article-breadcrumb a { color: var(--ink); }
+.article-breadcrumb a:hover { color: var(--coral); }
+.article-breadcrumb span:last-child { color: var(--coral); }
+.article-header { max-width: 920px; margin: 75px auto 52px; text-align: center; }
+.article-header h1 { margin: 20px 0 18px; font: 400 clamp(44px, 7vw, 84px)/1.02 var(--serif); letter-spacing: -.055em; overflow-wrap: anywhere; }
+.article-deck { max-width: 620px; margin: 0 auto; color: var(--muted); font-size: 17px; line-height: 1.75; }
+.article-author { margin: 23px 0 0; color: var(--muted); font-size: 11px; }
+.article-author strong { color: var(--ink); font-weight: 600; }
+.article-cover { position: relative; width: 100%; aspect-ratio: 1.95; margin: 0; overflow: hidden; background: #e6e3d9; }
+.article-cover img { object-fit: cover; }
+.article-body { max-width: 700px; margin: 62px auto 0; }
+.article-body > p { margin: 0 0 25px; color: #44443e; font: 400 18px/1.95 var(--sans); }
+.article-endmark { margin: 45px 0 22px; color: var(--coral); font-size: 24px; text-align: center; }
+.not-found-page { min-height: 66vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 60px; padding-bottom: 80px; text-align: center; }
+.not-found-page h1 { margin: 20px 0; font: 400 clamp(58px, 8vw, 90px)/1 var(--serif); letter-spacing: -.06em; }
+.not-found-page h1 em { color: var(--coral); font-weight: 400; }
+.not-found-page > p:not(.eyebrow) { max-width: 360px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.not-found-page .text-link { margin-top: 27px; }
+
 @media (max-width: 760px) {
   .site-header, .page-wrap { width: min(100% - 38px, 1280px); }
   .site-header { min-height: 72px; }
@@ -173,6 +194,12 @@ a:focus-visible, input:focus-visible { outline: 2px solid var(--coral); outline-
   .post-card h3 { font-size: 21px; }
   .site-footer { align-items: flex-start; flex-direction: column; gap: 10px; padding: 28px 19px; }
   .site-footer p { margin: 0; }
+  .article-main { padding-top: 26px; }
+  .article-header { margin: 55px auto 33px; }
+  .article-deck { font-size: 15px; }
+  .article-cover { aspect-ratio: 1.35; }
+  .article-body { margin-top: 40px; }
+  .article-body > p { font-size: 16px; line-height: 1.85; }
 }
 @media (max-width: 500px) {
   .main-nav { font-size: 10px; gap: 15px; }
