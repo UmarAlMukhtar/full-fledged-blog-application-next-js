@@ -4,6 +4,8 @@ A responsive editorial blog built with the Next.js App Router. The homepage is s
 
 **Source:** [UmarAlMukhtar/full-fledged-blog-application-next-js](https://github.com/UmarAlMukhtar/full-fledged-blog-application-next-js)
 
+**Live app:** [full-fledged-blog-application-next.vercel.app](https://full-fledged-blog-application-next.vercel.app)
+
 ## Screenshots
 
 ### Homepage
@@ -68,7 +70,7 @@ The endpoint must be public over HTTPS and return a JSON array. Invalid, empty, 
 
 ## Deployment
 
-Deploy the GitHub repository with Vercel's Next.js preset. Vercel supplies `VERCEL_URL` for canonical metadata; set `NEXT_PUBLIC_SITE_URL` only if using a custom domain. Add `MOCK_API_URL` in project environment variables if you have a MockAPI collection. If it is omitted, the public site uses the seed posts.
+The public app is deployed on Vercel from the GitHub repository. Set `NEXT_PUBLIC_SITE_URL` to your canonical domain when using a custom domain. Add `MOCK_API_URL` in project environment variables if you have a MockAPI collection. If it is omitted, the public site uses the seed posts.
 
 ## Project checks
 
