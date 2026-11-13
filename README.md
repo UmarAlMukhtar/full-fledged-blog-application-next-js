@@ -2,6 +2,8 @@
 
 A responsive editorial blog built with the Next.js App Router. The homepage is server-rendered, posts have dynamic article pages, and search filters the hydrated post cache as you type.
 
+**Source:** [UmarAlMukhtar/full-fledged-blog-application-next-js](https://github.com/UmarAlMukhtar/full-fledged-blog-application-next-js)
+
 ## Screenshots
 
 ### Homepage
